@@ -1,0 +1,4 @@
+#+title: Emacs Configuration
+#+author: Coder-85
+
+Contains my emacs configurations with modal editing(hel), custom theme etc.
