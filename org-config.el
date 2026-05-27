@@ -21,6 +21,8 @@
   :hook
   (org-present-mode . hel-normal-state))
 
+(use-package htmlize)
+
 (use-package visual-fill-column
   :init
   (setq visual-fill-column-width 110
@@ -102,6 +104,16 @@
   (define-key org-mode-map (kbd "C-<return>") #'org-meta-return)
   (define-key org-mode-map (kbd "M-<return>") nil)
   (define-key org-mode-map "$" #'math-delimiters-insert)
+
+  (org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (shell . t)
+   (java . t)
+   (C . t)
+   (sql . t)))
+  (setq org-confirm-babel-evaluate nil)
 
   (plist-put
    (cdr (assoc 'dvipng org-preview-latex-process-alist))
