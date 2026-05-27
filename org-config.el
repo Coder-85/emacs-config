@@ -155,6 +155,18 @@
   (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
 
+  ;; Force fixed-pitch fonts
+  (with-eval-after-load 'org
+   (dolist (face '(org-table
+                   org-formula
+                   org-code
+                   org-verbatim
+                   org-special-keyword
+                   org-meta-line))
+    (set-face-attribute face nil :inherit 'fixed-pitch)))
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+
+
   (setq
     org-babel-latex-preamble
      (lambda (_)
