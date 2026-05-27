@@ -26,17 +26,12 @@
   (setq cape-dabbrev-buffer-function #'cape-text-buffers)
   :bind (("C-c b" . cape-dabbrev)
         ("C-c f" . cape-file))
-  :config
-    (defun my/cape-super ()
-      (add-hook 'completion-at-point-functions
-                (cape-capf-super #'cape-dabbrev
-                                 #'cape-keyword)
-                20 t))
+  :config    
+    (add-hook 'completion-at-point-functions
+              (cape-capf-super #'cape-dabbrev
+                               #'cape-keyword))
+    (add-hook 'completion-at-point-functions #'cape-file))
 
-    (add-hook 'completion-at-point-functions #'cape-file)
-
-    (add-hook 'text-mode-hook #'my/cape-super)
-    (add-hook 'prog-mode-hook #'my/cape-super))
 
 (use-package corfu
   :custom
